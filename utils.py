@@ -63,7 +63,7 @@ def ExtractActivities(filename):
 
         flages_index += 2
         activities.append(activity)
-    return activities
+    return np.array(activities)
 
 def GetSensors(acts):
     """
