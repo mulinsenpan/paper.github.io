@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[ ]:
+# In[1]:
 
 
 """
@@ -41,12 +41,10 @@ def ExtractActivities(filename):
         for line in datafile:
             list_line = line.strip().split()
             original_data.append(list_line)
-
-    # little_data = original_data[0:1000]
+#     little_data = original_data[0:1000]
     flages = []
     for i in range(len(original_data)):
         if len(original_data[i]) > 4:
-
             activity = original_data[i][4:][0].split('=')
             if len(activity) == 1:
                 continue
@@ -56,7 +54,7 @@ def ExtractActivities(filename):
     activities = []
     i = 0
     while flages_index < len(flages) - 1:
-        original_indexs = range(flages[flages_index][0], flages[flages_index + 1][0])
+        original_indexs = range(flages[flages_index][0], flages[flages_index + 1][0]+1)
         activity = [original_data[index][0:4] for index in original_indexs]
 
         activity.insert(0, flages[flages_index][1])
@@ -130,12 +128,14 @@ def Store(acts):
     activities.close()
 
 
-# acts = ExtractActivities('./data/ann.txt')
-# Store(acts)
-# for act in acts:
-#     if act[0] == "Work":
-#         print act
+
+# In[4]:
+
+# activities = ExtractActivities("./data/ann.txt")
+# print activities[0]
 
 
-# ACTIVITIES,BINSENSORS,CONTINUESENSORS = LoadMeta(metalabel)
+# In[ ]:
+
+
 
